@@ -8,17 +8,25 @@ Of course you can say doing the way below already work, but I dunno when there's
 That's why I decided to create this package and make this more the way I was used to in Kotlin (with the [mockk](https://mockk.io/#capturing) library =)
 
 ```php
-->with(self::callback(function ($object): bool {
-    self::assertInstanceOf(MyObject::class, $object);
-    self::assertEquals('value', $object->getValue());
-    return true;
-}))
+$mock
+    ->expects($this->once())
+    ->method('foo')
+    ->with(self::callback(function ($object): bool {
+        self::assertInstanceOf(MyObject::class, $object);
+        self::assertEquals('value', $object->getValue());
+        return true;
+    }))
 ```
 
 Instead of that I am doing something like this
 
 ```php
-->with($slot->capture())
+$slot = new Slot();
+
+$mock
+    ->expects($this->once())
+    ->method('foo')
+    ->with($slot->capture())
 
 //other mock declarations
 
