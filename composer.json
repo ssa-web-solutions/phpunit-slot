@@ -1,0 +1,29 @@
+{
+    "name": "ssaweb/phpunit-slot",
+    "description": "A package to help you catch method parameters for testing.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SSAWeb\\PHPUnit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { 
+            "SSAWeb\\PHPUnit\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Reis",
+            "email": "lucas@mreis.dev"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^10.2.0"
+    },
+    "scripts": {
+        "tests": "./vendor/bin/phpunit tests"
+    }
+}
